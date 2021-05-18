@@ -1,5 +1,5 @@
 # SmartRicePriceControl
-[B21-CAP0364]
+## [B21-CAP0364]
 #### Siti Nurjanah (A2472334)
 #### Yuma Anugrah Virya Gunawan (A0141364)
 #### Destiana Nur Fitriani (C2472330)
