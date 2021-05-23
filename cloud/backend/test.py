@@ -1,13 +1,13 @@
 import unittest
 import main
-import json
+from flask import jsonify
 results = {
         "harga_1":0.0,
         "harga_2":0.0,
         "harga_3":0.0,
         "harga_4":0.0
     }
-json_results = json.dumps(str(results))
+json_results = jsonify(str(results))
 
 class TestInput(unittest.TestCase):
     def test_value_input(self):
