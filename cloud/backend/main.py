@@ -40,13 +40,13 @@ def predict():
     # with urllib.request.urlopen(model_location_public) as model_file:
     #     model_gcs = h5py.File(model_file, 'r')
     #     test_Model = keras.models.load_model(model_gcs)
-    # FS = gcsfs.GCSFileSystem(project='Smart Food Prices Control', token='test_assets/cred.json')
+    FS = gcsfs.GCSFileSystem(project='Smart Food Prices Control', token='test_assets/cred.json')
     
-    # with FS.open(model_location, 'rb') as model_file:
-    #     model_gcs = h5py.File(model_file, 'r')
-    #     test_Model = keras.models.load_model(model_gcs)
+    with FS.open(model_location, 'rb') as model_file:
+        model_gcs = h5py.File(model_file, 'r')
+        test_Model = keras.models.load_model(model_gcs)
     # model_gcs = urllib.request.urlopen(model_location_public)
-    test_Model = keras.models.load_model(model_location_public)
+    # test_Model = keras.models.load_model(model_location_public)
     
     prediction = test_Model.predict([data])
 
