@@ -1,2 +1,4 @@
-tensorflow==2.5.0
-flask==2.0.1
+tensorflow
+flask
+gcsfs
+h5py
