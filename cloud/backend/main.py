@@ -43,6 +43,7 @@ def predict():
         model_gcs = h5py.File(model_file, 'r')
         test_Model = keras.models.load_model(model_gcs)
     
+    
     prediction = test_Model.predict([data])
 
     for keys,i in zip(results.keys(),prediction[0]):
