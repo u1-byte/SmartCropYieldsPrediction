@@ -51,8 +51,6 @@ def predict():
 
     json_results = jsonify(results)
     return json_results
-    # print(json_results)
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port='8080',debug=True)
