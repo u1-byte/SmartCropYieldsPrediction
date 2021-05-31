@@ -1,4 +1,4 @@
-package com.u1.capstoneproject.ui
+package com.u1.capstoneproject.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,9 +1,10 @@
-package com.u1.capstoneproject.ui
+package com.u1.capstoneproject.ui.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.u1.capstoneproject.R
+import com.u1.capstoneproject.ui.home.MainActivity
 import java.util.*
 import kotlin.concurrent.schedule
 
