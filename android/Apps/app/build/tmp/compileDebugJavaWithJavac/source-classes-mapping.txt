@@ -1,0 +1,6 @@
+com/u1/capstoneproject/BuildConfig.java
+ com.u1.capstoneproject.BuildConfig
+com/u1/capstoneproject/databinding/ActivityMainBinding.java
+ com.u1.capstoneproject.databinding.ActivityMainBinding
+com/u1/capstoneproject/databinding/ActivitySplashBinding.java
+ com.u1.capstoneproject.databinding.ActivitySplashBinding
