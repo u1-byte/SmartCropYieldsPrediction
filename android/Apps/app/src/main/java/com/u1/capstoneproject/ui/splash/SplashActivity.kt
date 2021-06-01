@@ -1,4 +1,4 @@
-package com.u1.capstoneproject.ui
+package com.u1.capstoneproject.ui.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +13,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Timer("Splash Screen").schedule(2500){
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            startActivity(Intent(this@SplashActivity, OnBoardingActivity::class.java))
             finish()
         }
     }

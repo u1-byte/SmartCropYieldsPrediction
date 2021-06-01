@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneProject">
-        <activity android:name=".ui.MainActivity"></activity>
-        <activity android:name=".ui.SplashActivity">
+        <activity android:name=".ui.about.AboutActivity"></activity>
+        <activity android:name=".ui.splash.OnBoardingActivity" />
+        <activity android:name=".ui.setup_location.LocationSetupActivity" />
+        <activity android:name=".ui.prediction_res.ResultActivity" />
+        <activity android:name=".ui.home.MainActivity" />
+        <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
