@@ -5,4 +5,9 @@
     <string name="pilih">PILIH</string>
     <string name="onboarding_title">Cras euismod enim.</string>
     <string name="onboarding_caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis ligula a ipsum dapibus lobortis eget et lorem. Etiam et quam at dui feugiat faucibus eget at metus. Morbi maximus cursus libero id dignissim.</string>
+    <string name="title">Smart Price Rice Control</string>
+    <string name="input1_hint">Hint</string>
+    <string name="input1_size">Satuan</string>
+    <string name="input2_size">tes2</string>
+    <string name="input2_hint">Hint2</string>
 </resources>
