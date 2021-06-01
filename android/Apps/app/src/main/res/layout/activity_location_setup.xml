@@ -91,6 +91,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_accept"
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:text="@string/pilih"
