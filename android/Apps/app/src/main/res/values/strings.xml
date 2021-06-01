@@ -37,4 +37,7 @@
     <string name="input14_hint">Hint14</string>
     <string name="input14_size">tes14</string>
     <string name="hitung">HITUNG</string>
+    <string name="text_prediction">Prediksi Hasil Panen</string>
+    <string name="total_res">300000</string>
+    <string name="total_res_size">TON</string>
 </resources>
