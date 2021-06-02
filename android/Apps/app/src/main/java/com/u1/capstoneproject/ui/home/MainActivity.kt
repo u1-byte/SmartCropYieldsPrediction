@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.u1.capstoneproject.data.ParamData
 import com.u1.capstoneproject.databinding.ActivityMainBinding
 import com.u1.capstoneproject.ui.about.AboutActivity
 import com.u1.capstoneproject.ui.prediction_res.ResultActivity
@@ -89,6 +90,9 @@ class MainActivity : AppCompatActivity() {
                         input14.error = "Masih Kosong"
                     }
                     else -> {
+                        val data = setData(param1, param2, param3, param4, param5, param6, param7,
+                                param8, param9, param10, param11, param12, param13, param14)
+                        sendIntent(data)
                         viewModel.calculate(
                                 param1, param2, param3, param4, param5, param6, param7,
                                 param8, param9, param10, param11, param12, param13, param14)
@@ -97,6 +101,34 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun setData(
+            param1: String,
+            param2: String,
+            param3: String,
+            param4: String,
+            param5: String,
+            param6: String,
+            param7: String,
+            param8: String,
+            param9: String,
+            param10: String,
+            param11: String,
+            param12: String,
+            param13: String,
+            param14: String
+    ) : ParamData {
+        return ParamData(
+                param1.toDouble(), param2.toDouble(), param3.toDouble(), param4.toDouble(), param5.toDouble(), param6.toDouble(), param7.toDouble(),
+                param8.toDouble(), param9.toDouble(), param10.toDouble(), param11.toDouble(), param12.toDouble(), param13.toDouble(), param14.toDouble()
+        )
+    }
+
+    private fun sendIntent(data: ParamData){
+        val intent = Intent(this@MainActivity, ResultActivity::class.java)
+        intent.putExtra(ResultActivity.EXTRA_RES, data)
+        startActivity(intent)
     }
 
     private fun getResult(){
