@@ -1,5 +1,6 @@
 import h5py
 import gcsfs
+import os
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow import keras
 from flask import Flask, request, jsonify
