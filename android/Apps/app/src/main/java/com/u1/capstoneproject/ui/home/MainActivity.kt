@@ -21,5 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding.settings.setOnClickListener {
             startActivity(Intent(this@MainActivity, LocationSetupActivity::class.java))
         }
+
+
     }
 }
