@@ -14,8 +14,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
 
-    private val viewModel: MainViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -93,10 +91,6 @@ class MainActivity : AppCompatActivity() {
                         val data = setData(param1, param2, param3, param4, param5, param6, param7,
                                 param8, param9, param10, param11, param12, param13, param14)
                         sendIntent(data)
-                        viewModel.calculate(
-                                param1, param2, param3, param4, param5, param6, param7,
-                                param8, param9, param10, param11, param12, param13, param14)
-                        getResult()
                     }
                 }
             }
@@ -129,22 +123,5 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this@MainActivity, ResultActivity::class.java)
         intent.putExtra(ResultActivity.EXTRA_RES, data)
         startActivity(intent)
-    }
-
-    private fun getResult(){
-        alreadySet(false, 0.0)
-
-        viewModel.getResult().observe(this,{
-            val result = it.Produksi
-            alreadySet(true, result)
-        })
-    }
-
-    private fun alreadySet(state: Boolean, res: Double){
-        if (state){
-            val intent = Intent(this@MainActivity, ResultActivity::class.java)
-            intent.putExtra(ResultActivity.EXTRA_RES, res)
-            startActivity(intent)
-        }
     }
 }
