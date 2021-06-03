@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CapstoneProject</string>
     <string name="pilih_provinsi">Pilih Provinsi</string>
-    <string name="pilih_kabupaten">Pilih Kabupaten</string>
+    <string name="pilih_komoditas">Pilih Komoditas</string>
     <string name="pilih">PILIH</string>
     <string name="onboarding_title">Cras euismod enim.</string>
     <string name="onboarding_caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis ligula a ipsum dapibus lobortis eget et lorem. Etiam et quam at dui feugiat faucibus eget at metus. Morbi maximus cursus libero id dignissim.</string>
