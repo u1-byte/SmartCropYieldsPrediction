@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.home.MainActivity"
+    tools:context=".ui.home.MainPremiumActivity"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -104,18 +104,41 @@
             app:layout_constraintEnd_toEndOf="@id/layout_bulan"/>
 
         <TextView
+            android:id="@+id/text_pred"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="10dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/oswald_reg"
+            android:textColor="@color/dark_green"
+            android:text="CEK PREDIKSI DENGAN AKSES LENGKAP"
+            app:layout_constraintTop_toBottomOf="@id/layout_bulan"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/btn_forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_forward"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/text_pred"
+            app:layout_constraintStart_toEndOf="@+id/text_pred"
+            app:layout_constraintTop_toTopOf="@id/text_pred" />
+
+        <TextView
             android:id="@+id/text_title1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginHorizontal="10dp"
             android:text="Prediksi Suhu Periode Tanam - Panen"
             android:fontFamily="@font/oswald_reg"
             android:textSize="18sp"
             android:textColor="@color/dark_green"
-            app:layout_constraintTop_toBottomOf="@id/layout_bulan"
+            app:layout_constraintTop_toBottomOf="@id/text_pred"
             app:layout_constraintStart_toStartOf="parent"/>
-        
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_rv1"
             android:layout_width="match_parent"
@@ -217,7 +240,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="10dp"
-            android:text="Prediksi Lama Penyinaran Bulan Panen"
+            android:text="Lama Penyinaran Bulan Panen"
             android:fontFamily="@font/oswald_reg"
             android:textSize="18sp"
             android:textColor="@color/dark_green"

@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneProject">
-        <activity android:name=".ui.about.AboutActivity"></activity>
+        <activity android:name=".ui.home.MainPremiumActivity"></activity>
+        <activity android:name=".ui.prediction_calc.CalculationActivity" />
+        <activity android:name=".ui.about.AboutActivity" />
         <activity android:name=".ui.splash.OnBoardingActivity" />
         <activity android:name=".ui.setup_location.LocationSetupActivity" />
         <activity android:name=".ui.prediction_res.ResultActivity" />
