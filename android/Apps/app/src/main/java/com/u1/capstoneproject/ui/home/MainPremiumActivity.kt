@@ -3,38 +3,38 @@ package com.u1.capstoneproject.ui.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.HorizontalScrollView
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.u1.capstoneproject.data.ParamData
-import com.u1.capstoneproject.databinding.ActivityMainBinding
+import com.u1.capstoneproject.databinding.ActivityMainPremiumBinding
 import com.u1.capstoneproject.ui.about.AboutActivity
 import com.u1.capstoneproject.ui.home.adapter.DataAdapter
-import com.u1.capstoneproject.ui.prediction_res.ResultActivity
-import com.u1.capstoneproject.ui.prediction_res.ResultViewModel
+import com.u1.capstoneproject.ui.prediction_calc.CalculationActivity
 import com.u1.capstoneproject.ui.setup_location.LocationSetupActivity
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding : ActivityMainBinding
+class MainPremiumActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityMainPremiumBinding
 
     private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainPremiumBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.info.setOnClickListener {
-            startActivity(Intent(this@MainActivity, AboutActivity::class.java))
+            startActivity(Intent(this@MainPremiumActivity, AboutActivity::class.java))
         }
 
         binding.btnSwap.setOnClickListener {
-            startActivity(Intent(this@MainActivity, LocationSetupActivity::class.java))
+            startActivity(Intent(this@MainPremiumActivity, LocationSetupActivity::class.java))
         }
 
         binding.btnCalc.setOnClickListener {
 
+        }
+
+        binding.btnForward.setOnClickListener {
+            startActivity(Intent(this@MainPremiumActivity, CalculationActivity::class.java))
         }
 
         setSuhuRV()
@@ -71,5 +71,4 @@ class MainActivity : AppCompatActivity() {
         rvCurahHujan.adapter = adapter
         rvCurahHujan.setHasFixedSize(true)
     }
-
 }
