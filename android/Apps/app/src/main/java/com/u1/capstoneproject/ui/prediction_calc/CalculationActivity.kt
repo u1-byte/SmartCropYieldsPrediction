@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.u1.capstoneproject.data.ParamData
 import com.u1.capstoneproject.databinding.ActivityCalculationBinding
-import com.u1.capstoneproject.ui.home.MainActivity
 import com.u1.capstoneproject.ui.prediction_res.ResultActivity
 
 class CalculationActivity : AppCompatActivity() {
@@ -17,7 +16,7 @@ class CalculationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnBack.setOnClickListener {
-            startActivity(Intent(this@CalculationActivity, MainActivity::class.java))
+            onBackPressed()
         }
 
         binding.btnCalc.setOnClickListener {

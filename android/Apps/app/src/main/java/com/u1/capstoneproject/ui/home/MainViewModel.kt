@@ -1,15 +1,13 @@
 package com.u1.capstoneproject.ui.home
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.u1.capstoneproject.network.api.ApiHelper
-import com.u1.capstoneproject.network.data.ResponseData
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.u1.capstoneproject.data.DummyBuilder
+import com.u1.capstoneproject.data.DummyData
 
-class MainViewModel: ViewModel() {
+class MainViewModel: ViewModel(){
+    fun getSuhuData(): List<DummyData> = DummyBuilder.generateSuhuData()
 
+    fun getKelembapanData(): List<DummyData> = DummyBuilder.generateKelembapanData()
+
+    fun getCurahHujanData(): List<DummyData> = DummyBuilder.generateCurahHujanData()
 }

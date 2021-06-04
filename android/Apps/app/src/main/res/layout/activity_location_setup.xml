@@ -151,6 +151,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_free" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_select"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="@string/select"
+            android:textColor="@color/black"
+            android:fontFamily="@font/oswald_reg"
+            android:textSize="18sp"
+            android:layout_marginTop="60dp"
+            app:backgroundTint="@color/light_green"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card2"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

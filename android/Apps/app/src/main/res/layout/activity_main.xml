@@ -93,7 +93,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:text="Bulan : Mei"
+            android:text="Bulan : Mei 2021"
             android:textColor="@color/white"
             android:textSize="12sp"
             android:fontFamily="@font/oswald_reg"
@@ -129,6 +129,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_suhu"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
@@ -165,6 +166,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_kelembapan"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
@@ -201,6 +203,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_curah"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
@@ -237,6 +240,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
+                android:id="@+id/text_duration"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:translationZ="5dp"
