@@ -10,12 +10,17 @@ class OnBoardingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnBoardingBinding
 
+    private val id = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityOnBoardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnNext.setOnClickListener {
-            startActivity(Intent(this@OnBoardingActivity, LocationSetupActivity::class.java))
+            val intent = Intent(this@OnBoardingActivity, LocationSetupActivity::class.java)
+            intent.putExtra(LocationSetupActivity.EXTRA_ID, 1)
+            startActivity(intent)
             finish()
         }
     }
