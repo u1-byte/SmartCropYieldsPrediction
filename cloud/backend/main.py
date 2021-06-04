@@ -1,6 +1,7 @@
 import h5py
 import gcsfs
 import os
+import predict
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow import keras
 from flask import Flask, request, jsonify
@@ -19,7 +20,7 @@ output_scaler.fit(output_fit_data)
 app = Flask(__name__)
 
 
-@app.route('/api/price_predict', methods=['GET'])
+@app.route('/api/crops_predict', methods=['GET'])
 def predict():
     try:
         data1 = float(request.args.get('param1'))
@@ -67,6 +68,22 @@ def predict():
 
     json_results = jsonify(results)
     return json_results
+
+@app.route('/api/temp_predict', methods=['GET'])
+def pred_temp():
+    return predict.pred_temp()
+
+@app.route('/api/hum_predict', methods=['GET'])
+def pred_hum():
+    return predict.pred_hum()
+
+@app.route('/api/rain_predict', methods=['GET'])
+def pred_rain():
+    return predict.pred_rain()
+
+@app.route('/api/shine_predict', methods=['GET'])
+def pred_shine():
+    return predict.pred_shine()
 
 
 if __name__ == '__main__':
