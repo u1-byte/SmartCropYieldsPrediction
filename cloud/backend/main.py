@@ -1,4 +1,6 @@
+from predict import predict_crops
 import os
+import numpy
 from predict import *
 from flask import Flask, request, jsonify
 
@@ -43,7 +45,7 @@ def predict():
                   [30.25, 30.25, 30.25, 30.25, 85.45, 85.45, 85.45, 85.45, 18.84, 18.84, 18.84, 21.84, 9.47, 29694]]  # need to change this
     output_fit_data = [[1194.46], [103583.39]]
     
-    prediction = predict(input_fit_data,output_fit_data,data,model_location)
+    prediction = predict_crops(input_fit_data,output_fit_data,data,model_location)
 
     results["Produksi"] = float(prediction[0])
 
@@ -51,20 +53,24 @@ def predict():
     return json_results
 
 @app.route('/api/temp_predict', methods=['GET'])
-def pred_temp():
-    return pred_temp()
+def pred_temps():
+    result = pred_temp().tolist()
+    return jsonify(result)
 
 @app.route('/api/hum_predict', methods=['GET'])
-def pred_hum():
-    return pred_hum()
+def pred_hums():
+    result = pred_hum().tolist()
+    return jsonify(result)
 
 @app.route('/api/rain_predict', methods=['GET'])
-def pred_rain():
-    return pred_rain()
+def pred_rains():
+    result = pred_rain().tolist()
+    return jsonify(result)
 
 @app.route('/api/shine_predict', methods=['GET'])
-def pred_shine():
-    return pred_shine()
+def pred_shines():
+    results = pred_shine().tolist()
+    return jsonify(result)
 
 
 if __name__ == '__main__':

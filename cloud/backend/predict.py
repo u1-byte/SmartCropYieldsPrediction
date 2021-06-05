@@ -1,6 +1,7 @@
 import database.query as query
 import h5py
 import gcsfs
+import numpy
 
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow import keras
@@ -9,7 +10,9 @@ from flask import jsonify
 FS = gcsfs.GCSFileSystem(
         project='Smart Crop Yields Prediction', token='test_assets/cred.json')
 
-def predict(input_fd,output_fd,get_input,model_location):
+
+
+def predict_crops(input_fd,output_fd,get_input,model_location):
     input_scaler = MinMaxScaler()
     output_scaler = MinMaxScaler()
     input_scaler.fit(input_fd)
@@ -28,6 +31,28 @@ def predict(input_fd,output_fd,get_input,model_location):
     
     return prediction
 
+def predict(input_fd,output_fd,get_input,model_location):
+    input_scaler = MinMaxScaler()
+    output_scaler = MinMaxScaler()
+    input_scaler.fit(input_fd)
+    output_scaler.fit(output_fd)
+
+    input_data = input_scaler.transform([get_input])
+
+    input_data = numpy.array(input_data)
+    print(input_data)
+    input = input_data.reshape((input_data.shape[0], 1, 1, 1, 12))
+
+    with FS.open(model_location, 'rb') as model_file:
+        model_gcs = h5py.File(model_file, 'r')
+        model = keras.models.load_model(model_gcs)
+    
+    raw_prediction = model.predict(input)
+    scaled_prediction = output_scaler.inverse_transform(raw_prediction)
+    prediction = scaled_prediction[0]
+    
+    return prediction
+
 
 def pred_temp():
     input_fit_data = [[26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49],
@@ -38,8 +63,7 @@ def pred_temp():
     model_location = 'gs://rice_price_dev/ml_models/temp_model.h5'
 
     prediction = predict(input_fit_data,output_fit_data,query.get_temp(),model_location)
-    json_results = jsonify(prediction)
-    return json_results
+    return prediction
 
 
 def pred_hum():
@@ -51,8 +75,7 @@ def pred_hum():
     model_location = 'gs://rice_price_dev/ml_models/hum_model.h5'
 
     prediction = predict(input_fit_data,output_fit_data,query.get_hum(),model_location)
-    json_results = jsonify(prediction)
-    return json_results
+    return prediction
 
 
 def pred_rain():
@@ -64,8 +87,7 @@ def pred_rain():
     model_location = 'gs://rice_price_dev/ml_models/rain_model.h5'
 
     prediction = predict(input_fit_data,output_fit_data,query.get_rain(),model_location)
-    json_results = jsonify(prediction)
-    return json_results
+    return prediction
 
 
 def pred_shine():
@@ -77,7 +99,6 @@ def pred_shine():
     model_location = 'gs://rice_price_dev/ml_models/shine_model.h5'
 
     prediction = predict(input_fit_data,output_fit_data,query.get_shine(),model_location)
-    json_results = jsonify(prediction)
-    return json_results
+    return prediction
 
-print(pred_shine())
+# print(pred_shine())
