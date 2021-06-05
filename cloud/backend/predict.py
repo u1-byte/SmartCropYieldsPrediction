@@ -1,85 +1,83 @@
 import database.query as query
+import h5py
+import gcsfs
+
+from sklearn.preprocessing import MinMaxScaler
+from tensorflow import keras
+from flask import jsonify
+
+FS = gcsfs.GCSFileSystem(
+        project='Smart Crop Yields Prediction', token='test_assets/cred.json')
+
+def predict(input_fd,output_fd,get_input,model_location):
+    input_scaler = MinMaxScaler()
+    output_scaler = MinMaxScaler()
+    input_scaler.fit(input_fd)
+    output_scaler.fit(output_fd)
+    # print(get_input)
+    input = [get_input]
+
+    with FS.open(model_location, 'rb') as model_file:
+        model_gcs = h5py.File(model_file, 'r')
+        model = keras.models.load_model(model_gcs)
+
+    input_data = input_scaler.transform(input)
+    raw_prediction = model.predict(input_data)
+    scaled_prediction = output_scaler.inverse_transform(raw_prediction)
+    prediction = scaled_prediction[0]
+    
+    return prediction
+
 
 def pred_temp():
-    input_fit_data = [[26.49, 26.49, 26.49, 26.49],
-                      [30.25, 30.25, 30.25, 30.25]]  # need to change this
+    input_fit_data = [[26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49],
+                      [30.25, 30.25, 30.25, 30.25, 30.25, 30.25, 30.25, 30.25, 30.25, 30.25, 30.25, 30.25]]  # need to change this
     output_fit_data = [[26.49, 26.49, 26.49, 26.49],
-                      [30.25, 30.25, 30.25, 30.25]]
-    input_scaler = MinMaxScaler()
-    output_scaler = MinMaxScaler()
-    input_scaler.fit(input_fit_data)
-    output_scaler.fit(output_fit_data)
+                       [30.25, 30.25, 30.25, 30.25]]
+    
+    model_location = 'gs://rice_price_dev/ml_models/temp_model.h5'
 
-    temp_3, temp_2, temp_1, temp_0 = query.get_temp()
-    temp = [[temp_3, temp_2, temp_1, temp_0]]
-
-    input_data = input_scaler.transform(temp)
-    raw_prediction = test_Model.predict(input_data)
-    prediction = output_scaler.inverse_transform(raw_prediction)
-
-    temp_out = prediction[0]
-    json_results = jsonify(temp_out)
+    prediction = predict(input_fit_data,output_fit_data,query.get_temp(),model_location)
+    json_results = jsonify(prediction)
     return json_results
+
 
 def pred_hum():
-    input_fit_data = [[26.49, 26.49, 26.49, 26.49],
-                      [30.25, 30.25, 30.25, 30.25]]  # need to change this
-    output_fit_data = [[26.49, 26.49, 26.49, 26.49],
-                      [30.25, 30.25, 30.25, 30.25]]
-    input_scaler = MinMaxScaler()
-    output_scaler = MinMaxScaler()
-    input_scaler.fit(input_fit_data)
-    output_scaler.fit(output_fit_data)
+    input_fit_data = [[67.0, 67.0, 67.0, 67.0, 67.0, 67.0, 67.0, 67.0, 67.0, 67.0, 67.0, 67.0],
+                      [85.45, 85.45, 85.45, 85.45, 85.45, 85.45, 85.45, 85.45, 85.45, 85.45, 85.45, 85.45]]  # need to change this
+    output_fit_data = [[67.0, 67.0, 67.0, 67.0],
+                       [85.45, 85.45, 85.45, 85.45]]
 
-    hum_3, hum_2, hum_1, hum_0 = query.get_hum()
-    hum = [[hum_3, hum_2, hum_1, hum_0]]
+    model_location = 'gs://rice_price_dev/ml_models/hum_model.h5'
 
-    input_data = input_scaler.transform(hum)
-    raw_prediction = test_Model.predict(input_data)
-    prediction = output_scaler.inverse_transform(raw_prediction)
-
-    hum_out = prediction[0]
-    json_results = jsonify(hum_out)
+    prediction = predict(input_fit_data,output_fit_data,query.get_hum(),model_location)
+    json_results = jsonify(prediction)
     return json_results
+
 
 def pred_rain():
-    input_fit_data = [[26.49, 26.49, 26.49, 26.49],
-                      [30.25, 30.25, 30.25, 30.25]]  # need to change this
-    output_fit_data = [[26.49, 26.49, 26.49, 26.49],
-                      [30.25, 30.25, 30.25, 30.25]]
-    input_scaler = MinMaxScaler()
-    output_scaler = MinMaxScaler()
-    input_scaler.fit(input_fit_data)
-    output_scaler.fit(output_fit_data)
+    input_fit_data = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      [21.84, 21.84, 21.84, 21.84, 21.84, 21.84, 21.84, 21.84, 21.84, 21.84, 21.84, 21.84]]  # need to change this
+    output_fit_data = [[0, 0, 0, 0],
+                       [21.84, 21.84, 21.84, 21.84]]
+    
+    model_location = 'gs://rice_price_dev/ml_models/rain_model.h5'
 
-    rain_3, rain_2, rain_1, rain_0 = query.get_rain()
-    rain = [[rain_3, rain_2, rain_1, rain_0]]
-
-    input_data = input_scaler.transform(rain)
-    raw_prediction = test_Model.predict(input_data)
-    prediction = output_scaler.inverse_transform(raw_prediction)
-
-    rain_out = prediction[0]
-    json_results = jsonify(rain_out)
+    prediction = predict(input_fit_data,output_fit_data,query.get_rain(),model_location)
+    json_results = jsonify(prediction)
     return json_results
+
 
 def pred_shine():
-    input_fit_data = [[26.49, 26.49, 26.49, 26.49],
-                      [30.25, 30.25, 30.25, 30.25]]  # need to change this
-    output_fit_data = [[26.49, 26.49, 26.49, 26.49],
-                      [30.25, 30.25, 30.25, 30.25]]
-    input_scaler = MinMaxScaler()
-    output_scaler = MinMaxScaler()
-    input_scaler.fit(input_fit_data)
-    output_scaler.fit(output_fit_data)
+    input_fit_data = [[3.27, 3.27, 3.27, 3.27, 3.27, 3.27, 3.27, 3.27, 3.27, 3.27, 3.27, 3.27],
+                      [9.47, 9.47, 9.47, 9.47, 9.47, 9.47, 9.47, 9.47, 9.47, 9.47, 9.47, 9.47]]  # need to change this
+    output_fit_data = [[3.27, 3.27, 3.27, 3.27],
+                       [9.47, 9.47, 9.47, 9.47]]
+    
+    model_location = 'gs://rice_price_dev/ml_models/shine_model.h5'
 
-    shine_3, shine_2, shine_1, shine_0 = query.get_shine()
-    shine = [[shine_3, shine_2, shine_1, shine_0]]
-
-    input_data = input_scaler.transform(shine)
-    raw_prediction = test_Model.predict(input_data)
-    prediction = output_scaler.inverse_transform(raw_prediction)
-
-    shine_out = prediction[0]
-    json_results = jsonify(shine_out)
+    prediction = predict(input_fit_data,output_fit_data,query.get_shine(),model_location)
+    json_results = jsonify(prediction)
     return json_results
+
+print(pred_shine())
