@@ -67,19 +67,7 @@ def convertInsert():
                 )
     conn.commit()
     closeDb()
-
-def showTable():
-    openDb()
-    cursor.execute('''SELECT temp 
-    FROM (SELECT id,temp FROM weather_data 
-    ORDER BY id DESC LIMIT 12) t
-    ORDER BY id ASC
-    ''')
-    out = cursor.fetchall()
-    print(out)
-    closeDb()
-
-# showTable()
+    
 # dropTable()
 # createTable()
 # convertInsert()
