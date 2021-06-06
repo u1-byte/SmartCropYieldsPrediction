@@ -1,3 +1,11 @@
+## Setup
+1. add 3 of ssl certificate for cloud sql to `cloud/backend/database/ssl/`
+2. add `cred.json` for acces google cloud storage to `cloud/backend/test_assets/`
+3. rename `csv_sql_dummy.py` to `csv_sql.py` an then change auth configuration to your own
+4. change contain of `project` variable at line 11 on `predict.py` to your project name
+5. change contain of `model_location` at line **68**,**80**,**92**,**104** on `predict.py` and at line **43** on `main.py` to your own model location
+
+
 ## Deploy to GCE (Google Compute Engine)
 1. Install Virtual Environment
 ```

@@ -1,2 +1,5 @@
-cloud/backend/test_assets/
-cloud/backend/database/
+*/__pycache__/
+cloud/backend/test_assets/*
+cloud/backend/database/ssl/*
+cloud/backend/database/csv_csql.py
+*.bak
