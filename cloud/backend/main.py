@@ -69,7 +69,7 @@ def pred_rains():
 
 @app.route('/api/shine_predict', methods=['GET'])
 def pred_shines():
-    results = pred_shine().tolist()
+    result = pred_shine().tolist()
     return jsonify(result)
 
 
