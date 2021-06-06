@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         setSuhuRV()
         setKelembapanRV()
         setCurahHujanRV()
+        setLamaPenyinaranRV()
     }
 
     private fun setSuhuRV(){
@@ -70,6 +71,16 @@ class MainActivity : AppCompatActivity() {
         rvCurahHujan.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCurahHujan.adapter = adapter
         rvCurahHujan.setHasFixedSize(true)
+    }
+
+    private fun setLamaPenyinaranRV(){
+        val dataLamaPenyinaran = viewModel.getLamaPenyinaranData()
+        val adapter = DataAdapter()
+        adapter.setData(dataLamaPenyinaran)
+        val rvLamaPenyinaran = binding.rvSinar
+        rvLamaPenyinaran.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        rvLamaPenyinaran.adapter = adapter
+        rvLamaPenyinaran.setHasFixedSize(true)
     }
 
 }

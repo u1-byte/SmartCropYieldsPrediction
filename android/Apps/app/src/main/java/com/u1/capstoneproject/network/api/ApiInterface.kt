@@ -7,7 +7,7 @@ import retrofit2.http.Headers
 import retrofit2.http.Query
 
 interface ApiInterface {
-    @GET("api/price_predict")
+    @GET("api/crops_predict")
     fun getResult(
             @Query("param1") param1: Double,
             @Query("param2") param2: Double,
@@ -23,5 +23,9 @@ interface ApiInterface {
             @Query("param12") param12: Double,
             @Query("param13") param13: Double,
             @Query("param14") param14: Double,
+            @Query("param14") param15: Double,
+            @Query("param14") param16: Double,
+            @Query("param14") param17: Double
     ) : Call<ResponseData>
+
 }

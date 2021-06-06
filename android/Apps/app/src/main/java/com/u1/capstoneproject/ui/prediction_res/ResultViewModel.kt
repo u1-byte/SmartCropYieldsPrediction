@@ -29,11 +29,15 @@ class ResultViewModel : ViewModel() {
             param11: Double,
             param12: Double,
             param13: Double,
-            param14: Double
+            param14: Double,
+            param15: Double,
+            param16: Double,
+            param17: Double
     ){
         apiInstance.getResult(
                 param1, param2, param3, param4, param5, param6, param7,
-                param8, param9, param10, param11, param12, param13, param14
+                param8, param9, param10, param11, param12, param13,
+                param14, param15, param16, param17
         ).enqueue(object : Callback<ResponseData> {
             override fun onResponse(call: Call<ResponseData>, response: Response<ResponseData>) {
                 if (response.isSuccessful){

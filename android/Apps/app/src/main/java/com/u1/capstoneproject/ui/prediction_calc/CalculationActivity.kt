@@ -35,6 +35,9 @@ class CalculationActivity : AppCompatActivity() {
                 val param12 = input12.text.toString()
                 val param13 = input13.text.toString()
                 val param14 = input14.text.toString()
+                val param15 = input15.text.toString()
+                val param16 = input16.text.toString()
+                val param17 = input17.text.toString()
 
                 when {
                     param1.isEmpty() -> {
@@ -79,9 +82,20 @@ class CalculationActivity : AppCompatActivity() {
                     param14.isEmpty() -> {
                         input14.error = "Masih Kosong"
                     }
+                    param15.isEmpty() -> {
+                        input15.error = "Masih Kosong"
+                    }
+                    param16.isEmpty() -> {
+                        input16.error = "Masih Kosong"
+                    }
+                    param17.isEmpty() -> {
+                        input17.error = "Masih Kosong"
+                    }
                     else -> {
-                        val data = setData(param1, param2, param3, param4, param5, param6, param7,
-                            param8, param9, param10, param11, param12, param13, param14)
+                        val data = setData(
+                                param1, param2, param3, param4, param5, param6, param7,
+                                param8, param9, param10, param11, param12, param13,
+                                param14, param15, param16, param17)
                         sendIntent(data)
                     }
                 }
@@ -103,11 +117,15 @@ class CalculationActivity : AppCompatActivity() {
         param11: String,
         param12: String,
         param13: String,
-        param14: String
+        param14: String,
+        param15: String,
+        param16: String,
+        param17: String
     ) : ParamData {
         return ParamData(
-            param1.toDouble(), param2.toDouble(), param3.toDouble(), param4.toDouble(), param5.toDouble(), param6.toDouble(), param7.toDouble(),
-            param8.toDouble(), param9.toDouble(), param10.toDouble(), param11.toDouble(), param12.toDouble(), param13.toDouble(), param14.toDouble()
+                param1.toDouble(), param2.toDouble(), param3.toDouble(), param4.toDouble(), param5.toDouble(), param6.toDouble(), param7.toDouble(),
+                param8.toDouble(), param9.toDouble(), param10.toDouble(), param11.toDouble(), param12.toDouble(), param13.toDouble(), param14.toDouble(),
+                param15.toDouble(), param16.toDouble(), param17.toDouble()
         )
     }
 

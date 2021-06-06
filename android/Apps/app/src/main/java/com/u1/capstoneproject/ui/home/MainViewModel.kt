@@ -10,4 +10,6 @@ class MainViewModel: ViewModel(){
     fun getKelembapanData(): List<DummyData> = DummyBuilder.generateKelembapanData()
 
     fun getCurahHujanData(): List<DummyData> = DummyBuilder.generateCurahHujanData()
+
+    fun getLamaPenyinaranData(): List<DummyData> = DummyBuilder.generateLamaPenyinaranData()
 }
