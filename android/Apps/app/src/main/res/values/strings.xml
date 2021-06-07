@@ -3,8 +3,8 @@
     <string name="pilih_provinsi">Pilih Provinsi</string>
     <string name="pilih_komoditas">Pilih Komoditas</string>
     <string name="select_premium">AKSES PREMIUM</string>
-    <string name="onboarding_title">Cras euismod enim.</string>
-    <string name="onboarding_caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis ligula a ipsum dapibus lobortis eget et lorem. Etiam et quam at dui feugiat faucibus eget at metus. Morbi maximus cursus libero id dignissim.</string>
+    <string name="onboarding_title">Get Forecast Information &amp; <br/> Total Harvest Prediction</string>
+    <string name="onboarding_caption">Forecast information including monthly average temperature, humidity, rainfall, and sunshine. Then, get the total harvest prediction by just inputing your crop area! Get the full access to customize all of the input for our prediction model by becoming premium member.</string>
     <string name="title">Smart Price Rice Control</string>
     <string name="input1_hint">Suhu Rata - Rata Bulan Tanam</string>
     <string name="input1_size">Celsius</string>

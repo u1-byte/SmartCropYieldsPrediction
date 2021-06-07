@@ -23,9 +23,9 @@ interface ApiInterface {
             @Query("param12") param12: Double,
             @Query("param13") param13: Double,
             @Query("param14") param14: Double,
-            @Query("param14") param15: Double,
-            @Query("param14") param16: Double,
-            @Query("param14") param17: Double
+            @Query("param15") param15: Double,
+            @Query("param16") param16: Double,
+            @Query("param17") param17: Double
     ) : Call<ResponseData>
 
 }
