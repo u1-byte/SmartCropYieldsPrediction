@@ -25,8 +25,11 @@ def predict():
         data12 = float(request.args.get('param12'))
         data13 = float(request.args.get('param13'))
         data14 = float(request.args.get('param14'))
+        data15 = float(request.args.get('param15'))
+        data16 = float(request.args.get('param16'))
+        data17 = float(request.args.get('param17'))
         data = [data1, data2, data3, data4, data5, data6, data7,
-                 data8, data9, data10, data11, data12, data13, data14]
+                 data8, data9, data10, data11, data12, data13, data14, data15, data16, data17]
     except:
         data = [[]]
     results = {
@@ -34,15 +37,15 @@ def predict():
     }
     print(data)
     # checking input
-    if len(data) != 14:
+    if len(data) != 17:
         return jsonify(results)
     for nilai in data:
         if str(type(nilai)) != "<class 'float'>":
             return jsonify(results)
 
-    model_location = 'gs://rice_price_dev/ml_models/test_model_r2.h5'
-    input_fit_data = [[26.49, 26.49, 26.49, 26.49, 67, 67, 67, 67, 0, 0, 0, 0, 3.27, 333],
-                  [30.25, 30.25, 30.25, 30.25, 85.45, 85.45, 85.45, 85.45, 18.84, 18.84, 18.84, 21.84, 9.47, 29694]]  # need to change this
+    model_location = 'models/crop_model.h5'
+    input_fit_data = [[26.49, 26.49, 26.49, 26.49, 67, 67, 67, 67, 0, 0, 0, 0, 4.36, 3.44, 3.76, 3.27, 36120],
+                  [30.25, 30.25, 30.25, 30.25, 85.45, 85.45, 85.45, 85.45, 18.84, 18.84, 18.84, 21.84, 9.47, 9.47, 9.47, 9.47, 394917]]  # need to change this
     output_fit_data = [[1194.46], [103583.39]]
     
     prediction = predict_crops(input_fit_data,output_fit_data,data,model_location)
