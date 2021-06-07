@@ -20,9 +20,14 @@ def predict_crops(input_fd,output_fd,get_input,model_location):
     # print(get_input)
     input = [get_input]
 
-    with FS.open(model_location, 'rb') as model_file:
-        model_gcs = h5py.File(model_file, 'r')
-        model = keras.models.load_model(model_gcs)
+    # Try Offline Model
+    model_gcs = h5py.File(model_location, 'r')
+    model = keras.models.load_model(model_gcs)
+
+    ## Online Model high response time
+    # with FS.open(model_location, 'rb') as model_file:
+    #     model_gcs = h5py.File(model_file, 'r')
+    #     model = keras.models.load_model(model_gcs)
 
     input_data = input_scaler.transform(input)
     raw_prediction = model.predict(input_data)
