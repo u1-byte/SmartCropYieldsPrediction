@@ -10,7 +10,9 @@ Build with MVVM Architecture, Retrofit
 ### Screenshot
 <span align="center">
  <hr>
- <p align="center">Coming Soon</p>
+ <p align="center"><img src="Assets/mockup.jpg" alt="mockup"></p>
+ <p align="center">Mockup</p>
+ <p align="center"><img src="Assets/ss.jpg" alt="screenshot"></p>
  <p align="center">Screenshot</p>
  <hr>
 </span>
