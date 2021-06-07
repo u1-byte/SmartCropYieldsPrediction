@@ -32,7 +32,8 @@ class ResultActivity : AppCompatActivity() {
             showLoading(true)
             viewModel.calculate(
                     data.param1, data.param2, data.param3, data.param4, data.param5, data.param6, data.param7,
-                    data.param8, data.param9, data.param10, data.param11, data.param12, data.param13, data.param14)
+                    data.param8, data.param9, data.param10, data.param11, data.param12, data.param13,
+                    data.param14, data.param15, data.param16, data.param17)
         }
 
         viewModel.getResult().observe(this,{

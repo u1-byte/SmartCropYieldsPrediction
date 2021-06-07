@@ -19,4 +19,7 @@ data class ParamData(
         val param12: Double,
         val param13: Double,
         val param14: Double,
+        val param15: Double,
+        val param16: Double,
+        val param17: Double
 ) : Parcelable

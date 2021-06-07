@@ -89,4 +89,33 @@ object DummyBuilder {
         return curahHujan
     }
 
+    fun generateLamaPenyinaranData() : List<DummyData>{
+        val lamaPenyinaran = ArrayList<DummyData>()
+        lamaPenyinaran.add(DummyData(
+                "Mei\n2021",
+                6.45,
+                "Jam"
+        ))
+
+        lamaPenyinaran.add(DummyData(
+                "Juni\n2021",
+                8.13,
+                "Jam"
+        ))
+
+        lamaPenyinaran.add(DummyData(
+                "Juli\n2021",
+                9.15,
+                "Jam"
+        ))
+
+        lamaPenyinaran.add(DummyData(
+                "Agustus\n2021",
+                10.23,
+                "Jam"
+        ))
+
+        return lamaPenyinaran
+    }
+
 }
